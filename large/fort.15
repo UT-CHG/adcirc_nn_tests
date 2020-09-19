@@ -29,9 +29,13 @@
  0.0                                      ! ESL - LATERAL EDDY VISCOSITY COEFFICIENT; IGNORED IF NWP =1
  0.0                                      ! CORI - CORIOLIS PARAMETER - IGNORED IF NCOR = 1
  0                                        ! NUMBER OF TIDAL POTENTIAL CONSTITUENTS BEING FORCED
- 0                                        ! NBFR - TOTAL NUMBER OF FORCING FREQUENCIES ON OPEN BOUNDARIES
+ 1                                        ! NBFR - TOTAL NUMBER OF FORCING FREQUENCIES ON OPEN BOUNDARIES
+ FR0                                      ! BOUNTAG - ALPHA NUMERIC DESCRIPTOR      
+ 0.0  1.0  0.0                            ! FREQUENCY, NODAL FACTOR, EQUILIBRIUM ARGUMENT (DEG)
+     FR0                                  ! BOUNTAG - ALPHA NUMERIC DESCRIPTOR      
+     0.0  0
+     0.0  0
  80.000                                   ! ANGINN : INNER ANGLE THRESHOLD ! Originally 110
- 0                                        !  NFFR 
  1 6.0 8.0  30  	                      ! NOUTE,TOUTSE,TOUTFE,NSPOOLE:ELEV STATION OUTPUT INFO (UNIT  61)
  0  					                  ! NSTAE - TOTAL NUMBER OF ELEVATION RECORDING STATIONS
  1 6.0 8.0  30 			                  ! NOUTV,TOUTSV,TOUTFV,NSPOOLV:VEL STATION OUTPUT INFO (UNIT  61)
