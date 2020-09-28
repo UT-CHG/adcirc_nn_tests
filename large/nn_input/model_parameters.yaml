@@ -1,0 +1,27 @@
+features: [
+  '43057', '43060', '43053', '43059', '43047', '43058', '43052', 
+  '43050', '43160', '43054', '43051', '43049', '43056', '43091', '43055',
+  'Verified (ft)',
+]
+label: ['height']
+data_filename: "hourly_tidal_height_0910.pkl"
+num_epochs: 2000
+hidden_size: 64
+output_dim: 1
+num_layers: 2
+learning_rate: 0.00005
+dev_size: 9
+test_size: 12
+experiment_name: "coupled"
+experiment_num: "3" # remeber to modify this!!
+activation: "ReLU"
+optimization: "Adam"
+#optimization: "SGD"
+DEBUG: False
+scaled_min: 0
+scaled_max: 1
+l2_regularization: 0.0000
+dropout: 0.0
+early_stopping_rounds: 200
+training_start: 0
+eval_interval: 1

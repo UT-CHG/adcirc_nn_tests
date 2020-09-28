@@ -1,5 +1,5 @@
- pseudo_1d_x1_t1
- M2,M4,M6, and STEADY, min. depth = 2.0   ! 20 CHARACTER ALPANUMERIC RUN IDENTIFICATION
+ large
+ large                                    ! 20 CHARACTER ALPANUMERIC RUN IDENTIFICATION
  1                                        ! NFOVER - NONFATAL ERROR OVERRIDE OPTION
  0                                        ! NABOUT - ABREVIATED OUTPUT OPTION PARAMETER
  1                                        ! NSCREEN - OUTPUT TO UNIT 6 PARAMETER
@@ -20,7 +20,7 @@
  0.25                                      ! DT - TIME STEP (IN SECONDS)
  0.0                                      ! STATIM - STARTING TIME (IN DAYS)
  0.0                                      ! REFTIM - REFERENCE TIME (IN DAYS)
- 0.25                                     ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
+ 4.00                                     ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
  0.0                                      ! DRAMP - DURATION OF RAMP FUNCTION (IN DAYS)
  0.350 0.300 0.350                        ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
  0.010 0 0 .01                            ! H0, NODEDRYMIN, NODEWETMIN, VELMIN
