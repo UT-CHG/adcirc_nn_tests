@@ -17,16 +17,16 @@
  0                                        ! NRAMP - RAMP FUNCTION OPTION
  9.81                                     ! G - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS 
  0.0050                                   ! TAU0 - WEIGHTING FACTOR IN GWCE
- 0.25                                      ! DT - TIME STEP (IN SECONDS)
+ 1.0                                      ! DT - TIME STEP (IN SECONDS)
  0.0                                      ! STATIM - STARTING TIME (IN DAYS)
  0.0                                      ! REFTIM - REFERENCE TIME (IN DAYS)
  4.00                                     ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
  0.0                                      ! DRAMP - DURATION OF RAMP FUNCTION (IN DAYS)
- 0.350 0.300 0.350                        ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
+ 0.5 0.5 0.0                              ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
  0.010 0 0 .01                            ! H0, NODEDRYMIN, NODEWETMIN, VELMIN
  300. 24.                                 ! SLAM0,SFEA0 - CENTER OF CPP PROJECTION IN DEGREES LONG/LAT
  0.001, 0.0 10.0 1.3333                   ! FFACTOR, HBREAK, FTHETA, FGAMMA
- 0.0                                      ! ESL - LATERAL EDDY VISCOSITY COEFFICIENT; IGNORED IF NWP =1
+ 0.001                                    ! ESL - LATERAL EDDY VISCOSITY COEFFICIENT; IGNORED IF NWP =1
  0.0                                      ! CORI - CORIOLIS PARAMETER - IGNORED IF NCOR = 1
  0                                        ! NUMBER OF TIDAL POTENTIAL CONSTITUENTS BEING FORCED
  1                                        ! NBFR - TOTAL NUMBER OF FORCING FREQUENCIES ON OPEN BOUNDARIES
@@ -35,13 +35,13 @@
      FR0                                  ! BOUNTAG - ALPHA NUMERIC DESCRIPTOR      
      0.0  0
      0.0  0
- 80.000                                   ! ANGINN : INNER ANGLE THRESHOLD ! Originally 110
+ 100.000                                  ! ANGINN : INNER ANGLE THRESHOLD ! Originally 110
  1 6.0 8.0  30  	                      ! NOUTE,TOUTSE,TOUTFE,NSPOOLE:ELEV STATION OUTPUT INFO (UNIT  61)
  0  					                  ! NSTAE - TOTAL NUMBER OF ELEVATION RECORDING STATIONS
  1 6.0 8.0  30 			                  ! NOUTV,TOUTSV,TOUTFV,NSPOOLV:VEL STATION OUTPUT INFO (UNIT  61)
  0  					                  ! NSTAV - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
- 7 0.0 12.42 400 		              	  ! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE:GLOBAL ELEV OUTPUT INFO (UNIT  63)
- 7 0.0 12.42 400 		              	  ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV:GLOBAL
+ 7 0.0 12.42 3600 		              	  ! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE:GLOBAL ELEV OUTPUT INFO (UNIT  63)
+ 7 0.0 12.42 3600 		              	  ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV:GLOBAL
  0                                        ! NHARF - NUMBER OF FREQENCIES IN HARMONIC ANALYSIS
  10.350 12.420 40 0.000                   ! THAS,THAF,NHAINC,FMV - HARMONIC ANALYSIS PARAMETERS
  0 0 1 1                                  ! NHASE,NHASV,NHAGE,NHAGV - CONTROL HARMONIC ANALYSIS AND OUTPUT TO UNITS 51,52,53,54
