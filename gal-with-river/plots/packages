@@ -1,0 +1,203 @@
+\usepackage{amsmath,amsthm,amsfonts,amscd} 
+				% Some packages to write mathematics.
+\usepackage{eucal} 	 	% Euler fonts
+\usepackage{makeidx}       	% Package to make an index.
+\usepackage{url}		% Allows good typesetting of web URLs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GAJANAN ADDING
+% Packages and macros go here                                                    
+\usepackage{latexsym}
+\usepackage{graphics,graphicx}
+\usepackage{bm}
+\usepackage{siunitx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lowercase script alphabets without changing upper case mathcal script
+\makeatletter
+\let\old@mathcal=\mathcal
+\usepackage{dutchcal}
+\let\old@dutchcal=\mathcal
+\renewcommand{\mathcal}[1]{%
+  \if h#1
+     \old@dutchcal{#1}
+  \else
+     \old@mathcal{#1}
+  \fi
+}
+\newcommand{\hcal}{\mathcal{h}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Commands/Macros %%%%%
+%% Derivatives
+\newcommand{\der}[2]{\frac{d#1}{d#2}} % Usual derivative
+\newcommand{\tder}[2]{\frac{D#1}{D#2}} % Total derivative
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}} % Partial derivative
+\newcommand{\closure}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}} % Copied online
+
+%% Norms
+%\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+
+%% SYMBOLS
+\newcommand{\HVEL}{\text{HVEL}}
+\newcommand{\WVEL}{\text{WVEL}}
+\newcommand{\D}{\text{D}}  % For 2D and 3D, written as 2\D and 3\D
+\newcommand{\Om}{\Omega}                        % Domain Omega
+\newcommand{\Omel}{\Omega^{\textup{el}}}          % Element
+\newcommand{\dOm}{\partial\Omega}               % Domain boundary
+\newcommand{\dOmb}{\partial\Omega_{\text{b}}}   % Domain boundary: surface
+\newcommand{\dOms}{\partial\Omega_{\text{s}}}   % Domain boundary: bed
+\newcommand{\dOmv}{\partial\Omega_{\text{v}}}   % Domain boundary: side wall
+\newcommand{\cbar}{\bar{c}}
+\newcommand{\fbar}{\bar{f}}
+\newcommand{\ubar}{\bar{u}}
+\newcommand{\vbar}{\bar{v}}
+\newcommand{\ubarvec}{\bar{\bm{u}}}
+\newcommand{\vvec}{\bm{v}}
+\newcommand{\uvec}{\bm{u}}
+\newcommand{\nvec}{\bm{n}}
+\newcommand{\svec}{\bm{s}}
+\newcommand{\sbar}{\bar{s}}
+\newcommand{\Rvec}{\bm{R}}
+\newcommand{\Rbar}{\overline{R}}
+\newcommand{\rvec}{\bm{r}}
+\newcommand{\T}{\intercal} %% Transpose
+\newcommand{\Tvec}{\bm{T}}
+\newcommand{\Tvecbar}{\overline{\bm{T}}}
+\newcommand{\R}{{\rm I\!R}}% {\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\I}{I}
+\newcommand{\J}{\mathcal{I}}
+\newcommand{\Ohat}{\widehat{\mathcal{\bm{O}}}}
+\newcommand{\Op}{\mathcal{\bm{O}}}
+\newcommand{\wsur}{w^{\text{s}}}
+\newcommand{\wbed}{w^{\text{b}}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\Dtens}{\smash{\overline{\overline{\bm{D}}}}\vphantom{D}^{3\D}}
+\newcommand{\Dbartens}{\smash{\overline{\overline{\bm{D}}}}\vphantom{D}^{2\D}}
+\newcommand{\Uh}{U^{\hcal}}
+%\newcommand{\Vh}{V^{\hcal}}
+\newcommand{\Uvech}{{\bm{U}}^{\hcal}}
+%\newcommand{\Vvech}{{\bm{V}}^{\hcal}}
+\newcommand{\phivec}{\bm{\phi}}
+%\newcommand{\psivec}{\bm{\psi}}
+\newcommand{\bCG}{\bm{b}_{\text{CG}}}
+\newcommand{\bPG}{\bm{b}_{\text{PG}}}
+\newcommand{\bSUPG}{\bm{b}_{\text{SUPG}}}
+\newcommand{\tautens}{\smash{\overline{\overline{\bm{\tau}}}\vphantom{\tau}_i^\text{el}}}
+\newcommand{\tauel}{{\tau}^\text{el}}
+
+%% 2D WVEL stage
+\newcommand{\ubarvecHVEL}{\smash{\ubarvec\vphantom{\ubarvec}^\HVEL}}
+\newcommand{\etaHVEL}{{\eta^\HVEL}}
+\newcommand{\hHVEL}{{h^\HVEL}}
+
+%% 2D-3D theory
+\mathchardef\mhyphen="2D
+\newcommand{\twothree}{{2\D\mhyphen 3\D}}
+\newcommand{\Omtwo}{\Omega_{2\D}}
+\newcommand{\Omthree}{\Omega_{3\D}}
+\newcommand{\Omcouple}{\Omega_{2\D\mhyphen 3\D}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+}}
+
+%% For error analysis
+\newcommand{\RMS}{\text{RMS}}
+\newcommand{\evec}{\bm{e}}
+
+\newcommand{\hh}{h^{\hcal}}
+\newcommand{\happ}{\tilde{h}}
+\newcommand{\hlin}{h^{lin}}
+\newcommand{\uh}{\bm{u}^{\hcal}}
+\newcommand{\uapp}{\bm{\tilde{u}}}
+\newcommand{\ulin}{\bm{u}^{lin}}
+
+\newcommand{\sh}{\bm{s}^{\hcal}}
+\newcommand{\sapp}{\bm{\tilde{s}}}
+\newcommand{\slin}{{\bm{s}}^{lin}}
+\newcommand{\eapp}{\bm{\tilde{e}}}                % Probably unused.
+\newcommand{\elin}{{\bm{e}}^{lin}}                % Error b/w analytical and true sol
+\newcommand{\elinapp}{{\bm{\tilde{e}}}^{lin}}     % Approx error b/w analytical and true solution
+\newcommand{\eh}{\bm{e}^{\hcal}}                      % True, unkown error
+\newcommand{\ehapp}{\bm{\tilde{e}}^{\hcal}}           % Approximation to true error
+\newcommand{\ehlin}{{\bm{e}}^{lin, \hcal}}            % Pseudo-error b/w analytical and FE soln
+
+\newcommand{\ehh}{\bm{e}_{h}^{\hcal}}                 % True, unkown error
+\newcommand{\ehu}{\bm{e}_{\uvec}^{\hcal}}             % True, unkown error
+\newcommand{\ehapph}{\bm{\tilde{e}}_{h}^{\hcal}}      % Approximation to true error
+\newcommand{\ehappu}{\bm{\tilde{e}}_{\uvec}^{\hcal}}  % Approximation to true error
+\newcommand{\ehlinh}{{\bm{e}}_{h}^{lin, \hcal}}       % Pseudo-error b/w analytical and FE soln
+\newcommand{\ehlinu}{{\bm{e}}_{\uvec}^{lin, \hcal}}   % Pseudo-error b/w analytical and FE soln
+
+\newcommand{\eapph}{\bm{\tilde{e}}_{h}}
+\newcommand{\eappu}{\bm{\tilde{e}}_{\uvec}}
+\newcommand{\elinh}{{\bm{e}}_{h}^{lin}}
+\newcommand{\elinu}{{\bm{e}}_{\uvec}^{lin}}
+\newcommand{\elinapph}{{\bm{\tilde{e}}}_{h}^{lin}}
+\newcommand{\elinappu}{{\bm{\tilde{e}}}_{\uvec}^{lin}}
+
+\newcommand{\Ehapph}{{\tilde{E}}_{h}^{\hcal}} % Approximation to true error
+\newcommand{\Ehappu}{{\tilde{E}}_{\uvec}^{\hcal}} % Approximation to true error
+\newcommand{\Ehlinh}{E_{h}^{lin, \hcal}} % Pseudo-error b/w analytical and FE soln
+\newcommand{\Ehlinu}{E_{\uvec}^{lin, \hcal}} % Pseudo-error b/w analytical and FE soln
+\newcommand{\Elinapph}{{\tilde{E}}_{h}^{lin}} % Approximation to true error
+\newcommand{\Elinappu}{{\tilde{E}}_{\uvec}^{lin}} % Approximation to true error
+
+%% SI Units
+%\newcommand{\SIkm}[1]{\SI[parse-numbers = false]{#1}{\kilo\metre}}
+\DeclareSIUnit\bars{bars}
+\DeclareSIUnit\inches{inches}
+\DeclareSIUnit\minutes{minutes}
+\DeclareSIUnit\hours{hours}
+\DeclareSIUnit\hour{hour}
+\DeclareSIUnit\days{days}
+\DeclareSIUnit\day{day}
+
+\newcommand{\SIs}[1]{\SI{#1}{\s}}
+\newcommand{\SIhours}[1]{\SI{#1}{\hours}}
+\newcommand{\SIhour}[1]{\SI{#1}{\hour}}
+\newcommand{\SIdays}[1]{\SI{#1}{\days}}
+\newcommand{\SIday}[1]{\SI{#1}{\day}}
+
+\newcommand{\SIin}[1]{\SI{#1}{\inches}}
+\newcommand{\SIm}[1]{\SI{#1}{\metre}}
+\newcommand{\SImm}[1]{\SI{#1}{\metre\tothe{2}}}
+\newcommand{\SIkm}[1]{\SI{#1}{\kilo\metre}}
+\newcommand{\SIkmkm}[1]{\SI{#1}{\kilo\metre\tothe{2}}}
+\newcommand{\SIkmkmkm}[1]{\SI{#1}{\kilo\metre\tothe{3}}}
+\newcommand{\SImps}[1]{\SI[per-mode = symbol]{#1}{\metre\per\s}}
+\newcommand{\SImpss}[1]{\SI[per-mode = symbol]{#1}{\metre\per\s\tothe{2}}}
+\newcommand{\SImmmps}[1]{\SI[per-mode = symbol]{#1}{\metre\tothe{3}\per\s}}
+\newcommand{\SImmps}[1]{\SI[per-mode = symbol]{#1}{\metre\tothe{2}\per\s}} % Diffusivity
+
+\newcommand{\SIkgpmmm}[1]{\SI[per-mode = symbol]{#1}{\kilo\gram\per\meter\tothe{3}}}
+\newcommand{\SIgpkg}[1]{\SI[per-mode = symbol]{#1}{\gram\per\kilo\gram}}
+
+\newcommand{\SIFs}[1]{\SI[parse-numbers=false]{#1}{\s}}
+\newcommand{\SIFm}[1]{\SI[parse-numbers=false]{#1}{\metre}}
+\newcommand{\SIFkm}[1]{\SI[parse-numbers=false]{#1}{\kilo\metre}}
+
+\newcommand{\ssimps}{\si[per-mode = symbol]{\metre\per\s}}
+\newcommand{\ssim}{\si{\metre}}
+\newcommand{\ssis}{\si{\s}}
+\newcommand{\ssidays}{\si{\days}}
+\newcommand{\ssihours}{\si{\hours}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% For AdH-GSSHA coupling
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\delt}{\Delta t}
+\newcommand{\adg}{\textsc{adg}}
+\newcommand{\gda}{\textsc{gda}}
+\newcommand{\adgda}{\textsc{adgda}}
+\newcommand{\gdadg}{\textsc{gdadg}}
+\newcommand{\gdAdg}{\textsc{gdAdg}}
